@@ -109,20 +109,20 @@ public class Presenter {
         };
     }
 
-    public String[] productToString(Product product) {
+    private String[] productToString(Product product) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         return product != null ? new String[]{product.getIdProduct(), product.getDescription(), String.valueOf(product.getValue()), String.valueOf(product.getStock()), product.getTypeProduct().toString(), product.getDateExpired().format(formatter)} : null;
     }
 
-    public String[] billToString(Bill bill) {
+    private String[] billToString(Bill bill) {
         return bill != null ? new String[]{bill.getNumber(), bill.getDateBill().toString()} : null;
     }
 
-    public String[] detailToString(Detail detail) {
+    private String[] detailToString(Detail detail) {
         return detail != null ? new String[]{detail.getProduct().getIdProduct(), detail.getProduct().getDescription(), String.valueOf(detail.getProduct().getValue()), String.valueOf(detail.getCant()), String.valueOf(detail.calcSubTotal())} : null;
     }
 
-    public String[][] detailsToString(ArrayList<Detail> details) {
+    private String[][] detailsToString(ArrayList<Detail> details) {
         String[][] detailsString = new String[details.size()][];
         for (int i = 0; i < details.size(); i++) {
             detailsString[i] = this.detailToString(details.get(i));
