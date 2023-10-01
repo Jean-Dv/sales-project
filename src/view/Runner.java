@@ -107,6 +107,9 @@ public class Runner {
                 case 4:
                     this.getAllProducts();
                     break;
+                case 5:
+                    this.logIn();
+                    break;
                 default:
                     System.out.println("Opción inválida");
                     this.menuSeller();
@@ -158,6 +161,7 @@ public class Runner {
     public void getAllProducts() {
         String[][] products = this.presenter.getProducts();
         this.showTable(this.showProducts(products));
+        this.menuSeller();
     }
 
     public void addProduct() {
